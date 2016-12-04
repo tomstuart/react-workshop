@@ -2,9 +2,11 @@
   "name": "react-workshop",
   "version": "1.0.0",
   "description": "What Even Is A React (And So Can You!)",
-  "dependencies": {},
+  "dependencies": {
+    "jasmine": "^2.5.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=production jasmine"
   },
   "repository": {
     "type": "git",
