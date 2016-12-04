@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "What Even Is A React (And So Can You!)",
   "dependencies": {
-    "jasmine": "^2.5.2"
+    "jasmine": "^2.5.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "scripts": {
     "test": "NODE_ENV=production jasmine"
