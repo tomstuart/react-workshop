@@ -1,0 +1,14 @@
+{
+  "name": "react-workshop",
+  "version": "1.0.0",
+  "description": "What Even Is A React (And So Can You!)",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomstuart/react-workshop.git"
+  },
+  "license": "CC0-1.0"
+}
