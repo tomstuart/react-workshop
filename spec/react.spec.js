@@ -41,6 +41,11 @@ Object.keys(implementations).forEach(function (name) {
           props: {}
         }));
       });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<br>');
+      });
     });
   });
 });
