@@ -29,5 +29,18 @@ Object.keys(implementations).forEach(function (name) {
       container = null;
       element = null;
     });
+
+    describe('rendering an HTML element', function () {
+      beforeEach(function () {
+        element = React.createElement('br');
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: 'br',
+          props: {}
+        }));
+      });
+    });
   });
 });
