@@ -241,5 +241,37 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<span>Hello, Clarice!</span>');
       });
     });
+
+    describe('rendering nested functional components', function () {
+      var Greeting, App;
+
+      beforeEach(function () {
+        Greeting = function (props) {
+          return React.createElement('span', {}, ['Hello, ', props.name, '!']);
+        };
+
+        App = function (props) {
+          return React.createElement('p', {}, [
+            React.createElement(Greeting, { name: 'Alice' }),
+            React.createElement(Greeting, { name: 'Bob' }),
+            React.createElement(Greeting, { name: 'Charlie' })
+          ]);
+        };
+
+        element = React.createElement(App);
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: App,
+          props: {}
+        }));
+      });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<p><span>Hello, Alice!</span><span>Hello, Bob!</span><span>Hello, Charlie!</span></p>');
+      });
+    });
   });
 });
