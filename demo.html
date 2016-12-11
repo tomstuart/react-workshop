@@ -1,0 +1,196 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="lib/fake-react.js"></script>
+    <script src="lib/fake-react-dom.js"></script>
+    <!-- <script src="https://unpkg.com/react@15/dist/react.js"></script> -->
+    <!-- <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> -->
+    <style>
+      body {
+        font-family: Georgia, serif;
+        font-size: 120%;
+        line-height: 1.6;
+        background: #3c485e;
+        color: #10141c;
+      }
+
+      #container {
+        margin: 1em auto;
+        padding: 2em;
+        max-width: 30em;
+        background: #e9e8d4;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        position: relative;
+        margin: 0;
+        font-family: Helvetica, sans-serif;
+      }
+
+      .badge {
+        position: absolute;
+        margin-left: 0.5em;
+        font-size: 40%;
+        background: #d72108;
+        color: #e9e8d4;
+        opacity: 0.9;
+        padding: 0.3em 0.5em;
+        border-radius: 5px;
+        line-height: 1;
+      }
+
+      .badge:empty {
+        display: none;
+      }
+
+      ul {
+        padding: 0;
+        list-style-type: none;
+      }
+
+      li.done label {
+        text-decoration: line-through;
+      }
+
+      input[type=checkbox] {
+        margin: 0;
+        margin-right: 0.5em;
+        zoom: 1.5;
+      }
+
+      label {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      input[type=text] {
+        margin-right: 1em;
+        padding: 0.5em;
+        border: 1px solid #9aa9c7;
+        font-size: 120%;
+      }
+
+      input[type=text]:focus {
+        outline: 2px solid #e7991c;
+      }
+
+      button {
+        -webkit-appearance: none;
+        background-color: #6c7a95;
+        border: 0;
+        padding: 0.5em 1em;
+        color: #e9e8d4;
+        font-size: 120%;
+        box-shadow: 0 2px 0 #3c485e;
+        border-radius: 2px;
+      }
+
+      button:disabled {
+        background: gray;
+        opacity: 0.5;
+      }
+
+      button:focus, button:active {
+        background: #e7991c;
+        box-shadow: 0 2px 0 #b16e03;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      var TodoApp = React.createClass({
+        getInitialState: function () {
+          return { items: [], text: '' };
+        },
+
+        render: function () {
+          return React.createElement('div', {}, [
+            React.createElement(TodoHeader, {
+              title: this.props.name + ' Things To Do',
+              items: this.state.items
+            }),
+            React.createElement(TodoList, {
+              items: this.state.items,
+              markDone: this.markDone.bind(this)
+            }),
+            React.createElement('input', {
+              type: 'text',
+              value: this.state.text,
+              onChange: this.handleChange.bind(this)
+            }),
+            React.createElement('button',
+              Object.assign(
+                { onClick: this.handleClick.bind(this) },
+                this.state.text.length === 0 ? { disabled: 'disabled' } : {}
+              ),
+              [
+                'Add item #',
+                (this.state.items.length + 1).toString()
+              ]
+            )
+          ]);
+        },
+
+        markDone: function (index, done) {
+          var items = this.state.items.slice();
+          var item = Object.assign({}, items[index], { done: done });
+          items[index] = item;
+          this.setState({ items: items });
+        },
+
+        handleChange: function (event) {
+          this.setState({ text: event.target.value });
+        },
+
+        handleClick: function () {
+          var item = { text: this.state.text, done: false };
+          var items = this.state.items.concat(item);
+          this.setState({ items: items, text: '' });
+        }
+      });
+
+      var TodoHeader = function (props) {
+        var undoneCount = props.items.filter(function (item) { return !item.done; }).length;
+
+        return React.createElement('h1', {}, [
+          props.title,
+          React.createElement(Badge, { count: undoneCount })
+        ]);
+      };
+
+      var Badge = function (props) {
+        return React.createElement('span', { className: 'badge' }, [
+          props.count === 0 ? '' : props.count.toString()
+        ]);
+      };
+
+      var TodoList = function (props) {
+        return React.createElement('ul', {}, props.items.map(function (item, index) {
+          return React.createElement('li', { className: item.done ? 'done' : '' }, [
+            React.createElement('label', {}, [
+              React.createElement('input',
+                Object.assign(
+                  {
+                    type: 'checkbox',
+                    onChange: function (event) { props.markDone(index, event.target.checked); }
+                  },
+                  item.done ? { checked: 'checked' } : {}
+                )
+              ),
+              item.text
+            ])
+          ]);
+        }));
+      };
+
+      var element = React.createElement(TodoApp, { name: 'Christmas' });
+      var container = document.getElementById('container');
+
+      ReactDOM.render(element, container);
+    </script>
+  </body>
+</html>
