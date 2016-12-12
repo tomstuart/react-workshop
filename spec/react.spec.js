@@ -188,5 +188,20 @@ Object.keys(implementations).forEach(function (name) {
         expect(clicked).toBe(true);
       });
     });
+
+    describe('rendering an HTML element with a change handler', function () {
+      it('triggers the change handler when changed', function () {
+        var number = null;
+        var handleChange = function (event) { number = parseInt(event.target.value); };
+
+        element = React.createElement('input', { id: 'target', type: 'text', onChange: handleChange });
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<input id="target" type="text">');
+
+        expect(number).toBe(null)
+        fillIn(document.getElementById('target'), '42');
+        expect(number).toBe(42);
+      });
+    });
   });
 });
