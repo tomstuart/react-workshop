@@ -301,5 +301,47 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<span>Hello, Newman!</span>');
       });
     });
+
+    describe('rendering a class component with state', function () {
+      var Counter;
+
+      beforeEach(function () {
+        Counter = React.createClass({
+          getInitialState: function () {
+            return { count: this.props.initialCount };
+          },
+
+          render: function () {
+            return React.createElement(
+              'span',
+              {},
+              [
+                'There are ',
+                this.state.count.toString(),
+                ' ',
+                this.props.noun
+              ]
+            );
+          }
+        });
+
+        element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: Counter,
+          props: {
+            initialCount: 2,
+            noun: 'lights'
+          }
+        }));
+      });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span>There are 2 lights</span>');
+      });
+    });
   });
 });
