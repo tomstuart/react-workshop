@@ -203,5 +203,17 @@ Object.keys(implementations).forEach(function (name) {
         expect(number).toBe(42);
       });
     });
+
+    describe('re-rendering an HTML element', function () {
+      it('updates the DOM to match the new element', function () {
+        element = React.createElement('span', {}, ['Hello, world!']);
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span>Hello, world!</span>');
+
+        element = React.createElement('span', {}, ['¡Hola, mundo!']);
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span>¡Hola, mundo!</span>');
+      });
+    });
   });
 });
