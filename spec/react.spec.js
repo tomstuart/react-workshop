@@ -61,6 +61,11 @@ Object.keys(implementations).forEach(function (name) {
           }
         }));
       });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<img src="cat.jpg">');
+      });
     });
   });
 });
