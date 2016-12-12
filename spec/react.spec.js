@@ -118,5 +118,33 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<span>Hello, world!</span>');
       });
     });
+
+    describe('rendering an HTML element with mixed children', function () {
+      beforeEach(function () {
+        element = React.createElement(
+          'span',
+          {},
+          ['Hello', React.createElement('br'), 'world!']
+        );
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: 'span',
+          props: {
+            children: [
+              'Hello',
+              objectWith({ type: 'br', props: {} }),
+              'world!'
+            ]
+          }
+        }));
+      });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span>Hello<br>world!</span>');
+      });
+    });
   });
 });
