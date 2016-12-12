@@ -146,5 +146,32 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<span>Hello<br>world!</span>');
       });
     });
+
+    describe('rendering an HTML element with a class attribute', function () {
+      beforeEach(function () {
+        element = React.createElement(
+          'img',
+          {
+            className: 'fluffy',
+            src: 'cat.jpg'
+          }
+        );
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: 'img',
+          props: {
+            className: 'fluffy',
+            src: 'cat.jpg'
+          }
+        }));
+      });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<img class="fluffy" src="cat.jpg">');
+      });
+    });
   });
 });
