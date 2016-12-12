@@ -47,5 +47,20 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<br>');
       });
     });
+
+    describe('rendering an HTML element with attributes', function () {
+      beforeEach(function () {
+        element = React.createElement('img', { src: 'cat.jpg' });
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: 'img',
+          props: {
+            src: 'cat.jpg'
+          }
+        }));
+      });
+    });
   });
 });
