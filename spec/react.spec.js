@@ -173,5 +173,20 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<img class="fluffy" src="cat.jpg">');
       });
     });
+
+    describe('rendering an HTML element with a click handler', function () {
+      it('triggers the click handler when clicked', function () {
+        var clicked = false;
+        var handleClick = function () { clicked = true; };
+
+        element = React.createElement('span', { id: 'target', onClick: handleClick }, ['Click me!']);
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span id="target">Click me!</span>');
+
+        expect(clicked).toBe(false);
+        clickOn(document.getElementById('target'));
+        expect(clicked).toBe(true);
+      });
+    });
   });
 });
