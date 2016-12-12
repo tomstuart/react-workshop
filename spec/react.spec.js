@@ -94,5 +94,29 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<a href="animals.html"><img src="cat.jpg"><img src="dog.jpg"></a>');
       });
     });
+
+    describe('rendering an HTML element with text children', function () {
+      beforeEach(function () {
+        element = React.createElement(
+          'span',
+          {},
+          ['Hello', ', world!']
+        );
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: 'span',
+          props: {
+            children: ['Hello', ', world!']
+          }
+        }));
+      });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span>Hello, world!</span>');
+      });
+    });
   });
 });
