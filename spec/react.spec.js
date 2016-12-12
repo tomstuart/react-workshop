@@ -215,5 +215,31 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<span>¡Hola, mundo!</span>');
       });
     });
+
+    describe('rendering a functional component', function () {
+      var Greeting;
+
+      beforeEach(function () {
+        Greeting = function (props) {
+          return React.createElement('span', {}, ['Hello, ', props.name, '!']);
+        };
+
+        element = React.createElement(Greeting, { name: 'Clarice' });
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: Greeting,
+          props: {
+            name: 'Clarice'
+          }
+        }));
+      });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<span>Hello, Clarice!</span>');
+      });
+    });
   });
 });
