@@ -88,6 +88,11 @@ Object.keys(implementations).forEach(function (name) {
           }
         }));
       });
+
+      it('renders the element to the DOM', function () {
+        ReactDOM.render(element, container);
+        expect(container).toContainHTML('<a href="animals.html"><img src="cat.jpg"><img src="dog.jpg"></a>');
+      });
     });
   });
 });
