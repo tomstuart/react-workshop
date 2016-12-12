@@ -343,5 +343,61 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<span>There are 2 lights</span>');
       });
     });
+
+    describe('automatically re-rendering a class component', function () {
+      var Counter;
+
+      beforeEach(function () {
+        Counter = React.createClass({
+          getInitialState: function () {
+            return { count: this.props.initialCount };
+          },
+
+          handleClick: function () {
+            this.setState({ count: this.state.count + 1 });
+          },
+
+          render: function () {
+            return React.createElement(
+              'span',
+              {
+                id: 'target',
+                onClick: this.handleClick.bind(this)
+              },
+              [
+                'There are ',
+                this.state.count.toString(),
+                ' ',
+                this.props.noun
+              ]
+            );
+          }
+        });
+
+        element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: Counter,
+          props: {
+            initialCount: 2,
+            noun: 'lights'
+          }
+        }));
+      });
+
+      it('re-renders the element to the DOM when its state changes', function () {
+        ReactDOM.render(element, container);
+
+        var target = document.getElementById('target');
+
+        expect(container).toContainHTML('<span id="target">There are 2 lights</span>');
+        clickOn(target);
+        expect(container).toContainHTML('<span id="target">There are 3 lights</span>');
+        clickOn(target);
+        expect(container).toContainHTML('<span id="target">There are 4 lights</span>');
+      });
+    });
   });
 });
