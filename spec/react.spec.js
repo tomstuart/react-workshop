@@ -67,5 +67,27 @@ Object.keys(implementations).forEach(function (name) {
         expect(container).toContainHTML('<img src="cat.jpg">');
       });
     });
+
+    describe('rendering an HTML element with children', function () {
+      beforeEach(function () {
+        element = React.createElement('a', { href: 'animals.html' }, [
+          React.createElement('img', { src: 'cat.jpg' }),
+          React.createElement('img', { src: 'dog.jpg' })
+        ]);
+      });
+
+      it('creates the element', function () {
+        expect(element).toEqual(objectWith({
+          type: 'a',
+          props: {
+            href: 'animals.html',
+            children: [
+              objectWith({ type: 'img', props: { src: 'cat.jpg' } }),
+              objectWith({ type: 'img', props: { src: 'dog.jpg' } })
+            ]
+          }
+        }));
+      });
+    });
   });
 });
