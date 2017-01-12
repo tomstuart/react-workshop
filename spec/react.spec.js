@@ -1,24 +1,6 @@
 'use strict';
 
-var implementations = {
-  real: {
-    React: require('react'),
-    ReactDOM: require('react-dom'),
-    pending: function () {}
-  },
-  fake: {
-    React: require('../lib/fake-react'),
-    ReactDOM: require('../lib/fake-react-dom'),
-    pending: pending
-  }
-};
-
-Object.keys(implementations).forEach(function (name) {
-  var implementation = implementations[name];
-  var React = implementation.React;
-  var ReactDOM = implementation.ReactDOM;
-  var pending = implementation.pending;
-
+var specs = function (name, React, ReactDOM, pending) {
   describe('React and ReactDOM (' + name + ' implementation)', function () {
     var container, element;
 
@@ -453,4 +435,6 @@ Object.keys(implementations).forEach(function (name) {
       });
     });
   });
-});
+};
+
+module.exports = specs;
