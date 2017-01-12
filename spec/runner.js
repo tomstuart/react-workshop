@@ -21,5 +21,7 @@ Object.keys(implementations).forEach(function (name) {
   var ReactDOM = implementation.ReactDOM;
   var pending = implementation.pending;
 
-  specs(name, React, ReactDOM, pending);
+  describe('React and ReactDOM (' + name + ' implementation)', function () {
+    specs(React, ReactDOM, pending);
+  });
 });
