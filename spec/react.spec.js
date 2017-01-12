@@ -36,6 +36,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: 'br',
           props: {}
@@ -43,6 +45,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<br>');
       });
@@ -54,6 +58,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: 'img',
           props: {
@@ -63,6 +69,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<img src="cat.jpg">');
       });
@@ -77,6 +85,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: 'a',
           props: {
@@ -90,6 +100,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<a href="animals.html"><img src="cat.jpg"><img src="dog.jpg"></a>');
       });
@@ -105,6 +117,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: 'span',
           props: {
@@ -114,6 +128,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<span>Hello, world!</span>');
       });
@@ -129,6 +145,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: 'span',
           props: {
@@ -142,6 +160,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<span>Hello<br>world!</span>');
       });
@@ -159,6 +179,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: 'img',
           props: {
@@ -169,6 +191,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<img class="fluffy" src="cat.jpg">');
       });
@@ -176,6 +200,8 @@ Object.keys(implementations).forEach(function (name) {
 
     describe('rendering an HTML element with a click handler', function () {
       it('triggers the click handler when clicked', function () {
+        pending('not implemented yet');
+
         var clicked = false;
         var handleClick = function () { clicked = true; };
 
@@ -191,6 +217,8 @@ Object.keys(implementations).forEach(function (name) {
 
     describe('rendering an HTML element with a change handler', function () {
       it('triggers the change handler when changed', function () {
+        pending('not implemented yet');
+
         var number = null;
         var handleChange = function (event) { number = parseInt(event.target.value); };
 
@@ -206,6 +234,8 @@ Object.keys(implementations).forEach(function (name) {
 
     describe('re-rendering an HTML element', function () {
       it('updates the DOM to match the new element', function () {
+        pending('not implemented yet');
+
         element = React.createElement('span', {}, ['Hello, world!']);
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<span>Hello, world!</span>');
@@ -228,6 +258,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: Greeting,
           props: {
@@ -237,6 +269,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<span>Hello, Clarice!</span>');
       });
@@ -262,6 +296,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: App,
           props: {}
@@ -269,6 +305,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<p><span>Hello, Alice!</span><span>Hello, Bob!</span><span>Hello, Charlie!</span></p>');
       });
@@ -288,6 +326,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: Greeting,
           props: {
@@ -297,6 +337,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<span>Hello, Newman!</span>');
       });
@@ -329,6 +371,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: Counter,
           props: {
@@ -339,6 +383,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('renders the element to the DOM', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
         expect(container).toContainHTML('<span>There are 2 lights</span>');
       });
@@ -378,6 +424,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('creates the element', function () {
+        pending('not implemented yet');
+
         expect(element).toEqual(objectWith({
           type: Counter,
           props: {
@@ -388,6 +436,8 @@ Object.keys(implementations).forEach(function (name) {
       });
 
       it('re-renders the element to the DOM when its state changes', function () {
+        pending('not implemented yet');
+
         ReactDOM.render(element, container);
 
         var target = document.getElementById('target');
