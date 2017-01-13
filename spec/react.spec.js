@@ -20,7 +20,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: 'br',
@@ -29,7 +29,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<br>');
@@ -42,7 +42,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: 'img',
@@ -53,7 +53,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<img src="cat.jpg">');
@@ -69,7 +69,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: 'a',
@@ -84,7 +84,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<a href="animals.html"><img src="cat.jpg"><img src="dog.jpg"></a>');
@@ -101,7 +101,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: 'span',
@@ -112,7 +112,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, world!</span>');
@@ -129,7 +129,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: 'span',
@@ -144,7 +144,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello<br>world!</span>');
@@ -163,7 +163,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: 'img',
@@ -175,7 +175,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<img class="fluffy" src="cat.jpg">');
@@ -184,7 +184,7 @@ var specs = function (React, ReactDOM, pending) {
 
   describe('rendering an HTML element with a click handler', function () {
     it('triggers the click handler when clicked', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       var clicked = false;
       var handleClick = function () { clicked = true; };
@@ -201,7 +201,7 @@ var specs = function (React, ReactDOM, pending) {
 
   describe('rendering an HTML element with a change handler', function () {
     it('triggers the change handler when changed', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       var number = null;
       var handleChange = function (event) { number = parseInt(event.target.value); };
@@ -218,7 +218,7 @@ var specs = function (React, ReactDOM, pending) {
 
   describe('re-rendering an HTML element', function () {
     it('updates the DOM to match the new element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       element = React.createElement('span', {}, ['Hello, world!']);
       ReactDOM.render(element, container);
@@ -242,7 +242,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: Greeting,
@@ -253,7 +253,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, Clarice!</span>');
@@ -280,7 +280,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: App,
@@ -289,7 +289,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<p><span>Hello, Alice!</span><span>Hello, Bob!</span><span>Hello, Charlie!</span></p>');
@@ -310,7 +310,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: Greeting,
@@ -321,7 +321,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, Newman!</span>');
@@ -355,7 +355,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: Counter,
@@ -367,7 +367,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('renders the element to the DOM', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>There are 2 lights</span>');
@@ -408,7 +408,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('creates the element', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(objectWith({
         type: Counter,
@@ -420,7 +420,7 @@ var specs = function (React, ReactDOM, pending) {
     });
 
     it('re-renders the element to the DOM when its state changes', function () {
-      pending('not implemented yet');
+      pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
 
