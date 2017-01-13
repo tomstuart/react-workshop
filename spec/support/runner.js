@@ -1,6 +1,6 @@
 'use strict';
 
-var specs = require('./react.spec.js');
+var specs = require('../react.spec.js');
 
 var implementations = {
   real: {
@@ -9,8 +9,8 @@ var implementations = {
     pending: function () {}
   },
   fake: {
-    React: require('../lib/fake-react'),
-    ReactDOM: require('../lib/fake-react-dom'),
+    React: require('../../lib/fake-react'),
+    ReactDOM: require('../../lib/fake-react-dom'),
     pending: pending
   }
 };
