@@ -2,6 +2,6 @@
 
 beforeEach(function () {
   var jsdom = require('jsdom');
-  global.document = jsdom.jsdom();
-  global.window = document.defaultView;
+  global.window = new jsdom.JSDOM().window;
+  global.document = window.document;
 });
