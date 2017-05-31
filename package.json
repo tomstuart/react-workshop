@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "What Even Is A React (And So Can You!)",
   "dependencies": {
-    "jasmine": "^2.5.2",
+    "jasmine": "^2.6.0",
     "jasmine-fail-fast": "^2.0.0",
     "jsdom": "^9.8.3",
     "react": "^15.5.4",
