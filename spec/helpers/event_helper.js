@@ -13,7 +13,7 @@ beforeEach(function () {
     // and fake React, so I’m just papering over the cracks for now.
 
     // for real React:
-    var ReactTestUtils = require('react-addons-test-utils');
+    var ReactTestUtils = require('react-dom/test-utils');
     ReactTestUtils.Simulate.change(target);
 
     // for fake React:
