@@ -187,7 +187,8 @@
         }));
       };
 
-      var element = React.createElement(TodoApp, { name: 'New Year' });
+      var today = new Date().toLocaleString('en', { weekday: 'long' });
+      var element = React.createElement(TodoApp, { name: today });
       var container = document.getElementById('container');
 
       ReactDOM.render(element, container);
