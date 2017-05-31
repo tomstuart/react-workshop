@@ -6,9 +6,9 @@
     "jasmine": "^2.5.2",
     "jasmine-fail-fast": "^2.0.0",
     "jsdom": "^9.8.3",
-    "react": "^15.4.1",
+    "react": "^15.5.4",
     "react-addons-test-utils": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.5.4"
   },
   "scripts": {
     "test": "NODE_ENV=production jasmine"
