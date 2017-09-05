@@ -5,7 +5,7 @@
   "dependencies": {
     "jasmine": "^2.6.0",
     "jasmine-fail-fast": "^2.0.0",
-    "jsdom": "^11.0.0",
+    "jsdom": "^11.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
