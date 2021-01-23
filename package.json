@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "What Even Is A React (And So Can You!)",
   "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-jest": "^26.6.3",
     "jasmine": "^2.8.0",
     "jasmine-fail-fast": "^2.0.0",
     "jest": "^26.6.3",
