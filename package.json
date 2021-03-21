@@ -14,7 +14,7 @@
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "test": "NODE_ENV=production jasmine"
+    "test": "NODE_ENV=production jest"
   },
   "repository": {
     "type": "git",
