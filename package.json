@@ -15,6 +15,11 @@
   "scripts": {
     "test": "NODE_ENV=production jest"
   },
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", { "targets": { "node": "current" } }]
+    ]
+  },
   "jest": {
     "setupFilesAfterEnv": ["<rootDir>/spec/support/setup.js"],
     "testMatch": ["<rootDir>/spec/support/runner.js"]
