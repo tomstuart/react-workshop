@@ -8,13 +8,13 @@ about the React API and how it works under the hood.
 To get started:
 
 * Clone this repo and `cd` into it.
-* Run `npm install`.
-* Run `npm test`. You’ll see a lot of pending tests and (hopefully) no
+* Run `yarn install`.
+* Run `yarn test`. You’ll see a lot of pending tests and (hopefully) no
   failures.
 * Open `lib/fake-react.js` and `lib/fake-react-dom.js` in your editor. This is
   where your reimplementations of React and ReactDOM will live.
 * Open `spec/react.spec.js` in your editor and follow the instructions in the
-  comments there. As you enable each test, run `npm test` again to see it fail,
+  comments there. As you enable each test, run `yarn test` again to see it fail,
   then write the necessary code in `lib/fake-react.js` and
   `lib/fake-react-dom.js` to make it pass.
 * If you get all the way to the end, open `demo.html` in your browser to see a
