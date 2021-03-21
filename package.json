@@ -15,6 +15,9 @@
   "scripts": {
     "test": "NODE_ENV=production jest"
   },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/spec/support/jest.setup.js"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tomstuart/react-workshop.git"
