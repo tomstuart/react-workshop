@@ -102,94 +102,89 @@
   <body>
     <div id="container"></div>
     <script>
-      var TodoApp = React.createClass({
-        getInitialState: function () {
-          return { items: [], text: '' };
+      const TodoApp = React.createClass({
+        getInitialState: () => ({ items: [], text: '' }),
+
+        render() {
+          return (
+            React.createElement('div', {}, [
+              React.createElement(TodoHeader, {
+                title: this.props.name + ' Things To Do',
+                items: this.state.items
+              }),
+              React.createElement(TodoList, {
+                items: this.state.items,
+                markDone: this.markDone.bind(this)
+              }),
+              React.createElement('input', {
+                type: 'text',
+                value: this.state.text,
+                onChange: this.handleChange.bind(this)
+              }),
+              React.createElement('button',
+                {
+                  onClick: this.handleClick.bind(this),
+                  ...(this.state.text.length === 0 && { disabled: 'disabled' })
+                },
+                [
+                  'Add item #',
+                  (this.state.items.length + 1).toString()
+                ]
+              )
+            ])
+          );
         },
 
-        render: function () {
-          return React.createElement('div', {}, [
-            React.createElement(TodoHeader, {
-              title: this.props.name + ' Things To Do',
-              items: this.state.items
-            }),
-            React.createElement(TodoList, {
-              items: this.state.items,
-              markDone: this.markDone.bind(this)
-            }),
-            React.createElement('input', {
-              type: 'text',
-              value: this.state.text,
-              onChange: this.handleChange.bind(this)
-            }),
-            React.createElement('button',
-              Object.assign(
-                { onClick: this.handleClick.bind(this) },
-                this.state.text.length === 0 ? { disabled: 'disabled' } : {}
-              ),
-              [
-                'Add item #',
-                (this.state.items.length + 1).toString()
-              ]
-            )
-          ]);
+        markDone(index, done) {
+          const items = [...this.state.items];
+          items[index] = { ...items[index], done };
+          this.setState({ items });
         },
 
-        markDone: function (index, done) {
-          var items = this.state.items.slice();
-          var item = Object.assign({}, items[index], { done: done });
-          items[index] = item;
-          this.setState({ items: items });
+        handleChange({ target: { value: text } }) {
+          this.setState({ text });
         },
 
-        handleChange: function (event) {
-          this.setState({ text: event.target.value });
-        },
-
-        handleClick: function () {
-          var item = { text: this.state.text, done: false };
-          var items = this.state.items.concat(item);
-          this.setState({ items: items, text: '' });
+        handleClick() {
+          const item = { text: this.state.text, done: false };
+          const items = [...this.state.items, item];
+          this.setState({ items, text: '' });
         }
       });
 
-      var TodoHeader = function (props) {
-        var undoneCount = props.items.filter(function (item) { return !item.done; }).length;
+      const TodoHeader = ({ title, items }) => (
+        React.createElement('h1', {}, [
+          title,
+          React.createElement(Badge, { count: items.filter(({ done }) => !done).length })
+        ])
+      );
 
-        return React.createElement('h1', {}, [
-          props.title,
-          React.createElement(Badge, { count: undoneCount })
-        ]);
-      };
+      const Badge = ({ count }) => (
+        React.createElement('span', { className: 'badge' }, [
+          count === 0 ? '' : count.toString()
+        ])
+      );
 
-      var Badge = function (props) {
-        return React.createElement('span', { className: 'badge' }, [
-          props.count === 0 ? '' : props.count.toString()
-        ]);
-      };
-
-      var TodoList = function (props) {
-        return React.createElement('ul', {}, props.items.map(function (item, index) {
-          return React.createElement('li', { className: item.done ? 'done' : '' }, [
+      const TodoList = ({ items, markDone }) => (
+        React.createElement('ul', {}, items.map(({ done, text }, index) => (
+          React.createElement('li', { ...(done && { className: 'done' }) }, [
             React.createElement('label', {}, [
               React.createElement('input',
-                Object.assign(
-                  {
-                    type: 'checkbox',
-                    onChange: function (event) { props.markDone(index, event.target.checked); }
-                  },
-                  item.done ? { checked: 'checked' } : {}
-                )
+                {
+                  type: 'checkbox',
+                  onChange: ({ target: { checked } }) => { markDone(index, checked); },
+                  ...(done && { checked: 'checked' })
+                },
               ),
-              item.text
+              text
             ])
-          ]);
-        }));
-      };
+          ])
+        )))
+      );
 
-      var today = new Date().toLocaleString('en', { weekday: 'long' });
-      var element = React.createElement(TodoApp, { name: today });
-      var container = document.getElementById('container');
+      const today = new Date().toLocaleString('en', { weekday: 'long' });
+      const element = React.createElement(TodoApp, { name: today });
+      const container = document.getElementById('container');
 
       ReactDOM.render(element, container);
     </script>

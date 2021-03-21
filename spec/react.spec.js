@@ -1,16 +1,14 @@
-'use strict';
-
 // These tests incrementally describe some of the React and ReactDOM API.
 // They run once against the real React and ReactDOM, and then run again
 // against the fake React and ReactDOM implementations in lib/fake-react.js
 // and lib/fake-react-dom.js.
 
-export default function (React, createReactClass, ReactDOM, pending) {
+export default function ({ React, createReactClass, ReactDOM, pending }) {
   // Before every test, we create a <div> and add it to an HTML document.
   // We’ll use this <div> as a container (i.e. a parent) for any HTML elements
   // we create later on.
 
-  var container, element;
+  let container, element;
 
   beforeEach(function () {
     container = document.createElement('div');
@@ -332,8 +330,8 @@ export default function (React, createReactClass, ReactDOM, pending) {
     it('triggers the click handler when clicked', function () {
       // pending('not implemented yet'); // TODO remove this line to enable the test
 
-      var clicked = false;
-      var handleClick = function () { clicked = true; };
+      let clicked = false;
+      const handleClick = function () { clicked = true; };
 
       element = React.createElement('span', { id: 'target', onClick: handleClick }, ['Click me!']);
       ReactDOM.render(element, container);
@@ -356,8 +354,8 @@ export default function (React, createReactClass, ReactDOM, pending) {
     it('triggers the change handler when changed', function () {
       // pending('not implemented yet'); // TODO remove this line to enable the test
 
-      var number = null;
-      var handleChange = function (event) { number = parseInt(event.target.value); };
+      let number = null;
+      const handleChange = function (event) { number = parseInt(event.target.value); };
 
       element = React.createElement('input', { id: 'target', type: 'text', onChange: handleChange });
       ReactDOM.render(element, container);
@@ -403,7 +401,7 @@ export default function (React, createReactClass, ReactDOM, pending) {
     // At render time, the function gets called with the element’s props, and
     // the resulting React element is rendered into the page.
 
-    var Greeting;
+    let Greeting;
 
     beforeEach(function () {
       // Greeting is the functional component here; it’s a function that takes
@@ -447,7 +445,7 @@ export default function (React, createReactClass, ReactDOM, pending) {
     // functional. These tests check that ReactDOM.render() can handle
     // functional components nested inside each other.
 
-    var Greeting, App;
+    let Greeting, App;
 
     beforeEach(function () {
       Greeting = function (props) {
@@ -507,7 +505,7 @@ export default function (React, createReactClass, ReactDOM, pending) {
     // a class component. You’ll also need to edit lib/fake-react-dom.js to
     // teach ReactDOM.render() how to render a class component.
 
-    var Greeting;
+    let Greeting;
 
     beforeEach(function () {
       Greeting = createReactClass({
@@ -554,7 +552,7 @@ export default function (React, createReactClass, ReactDOM, pending) {
     // instantiated, and the resulting data is stored as the “state” property
     // of the component instance so that its render method can access it.
 
-    var Counter;
+    let Counter;
 
     beforeEach(function () {
       Counter = createReactClass({
@@ -608,7 +606,7 @@ export default function (React, createReactClass, ReactDOM, pending) {
     // to remember where the element was first rendered into the DOM so that
     // you can re-render it in the same place when its state changes.
 
-    var Counter;
+    let Counter;
 
     beforeEach(function () {
       Counter = createReactClass({
@@ -657,7 +655,7 @@ export default function (React, createReactClass, ReactDOM, pending) {
 
       ReactDOM.render(element, container);
 
-      var target = document.getElementById('target');
+      const target = document.getElementById('target');
 
       expect(container).toContainHTML('<span id="target">There are 2 lights</span>');
       clickOn(target);
