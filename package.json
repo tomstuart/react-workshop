@@ -16,7 +16,7 @@
     "test": "NODE_ENV=production jest"
   },
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>/spec/support/jest.setup.js"],
+    "setupFilesAfterEnv": ["<rootDir>/spec/support/setup.js"],
     "testMatch": ["<rootDir>/spec/support/runner.js"]
   },
   "repository": {
