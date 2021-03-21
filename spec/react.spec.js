@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
 
 const clickOn = function (target) {
@@ -574,7 +575,7 @@ expect.extend({
     var Greeting;
 
     beforeEach(function () {
-      Greeting = React.createClass({
+      Greeting = createReactClass({
         render: function () {
           return React.createElement('span', {}, ['Hello, ', this.props.name, '!']);
         }
@@ -621,7 +622,7 @@ expect.extend({
     var Counter;
 
     beforeEach(function () {
-      Counter = React.createClass({
+      Counter = createReactClass({
         getInitialState: function () {
           return { count: this.props.initialCount };
         },
@@ -675,7 +676,7 @@ expect.extend({
     var Counter;
 
     beforeEach(function () {
-      Counter = React.createClass({
+      Counter = createReactClass({
         getInitialState: function () {
           return { count: this.props.initialCount };
         },
