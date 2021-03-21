@@ -1,15 +1,11 @@
 'use strict';
 
-import React from 'react';
-import createReactClass from 'create-react-class';
-import ReactDOM from 'react-dom';
-
 // These tests incrementally describe some of the React and ReactDOM API.
 // They run once against the real React and ReactDOM, and then run again
 // against the fake React and ReactDOM implementations in lib/fake-react.js
 // and lib/fake-react-dom.js.
 
-// var specs = function (React, ReactDOM, pending) {
+export default function (React, createReactClass, ReactDOM, pending) {
   // Before every test, we create a <div> and add it to an HTML document.
   // We’ll use this <div> as a container (i.e. a parent) for any HTML elements
   // we create later on.
@@ -670,6 +666,4 @@ import ReactDOM from 'react-dom';
       expect(container).toContainHTML('<span id="target">There are 4 lights</span>');
     });
   });
-// };
-
-// module.exports = specs;
+};

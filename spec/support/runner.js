@@ -1,16 +1,23 @@
 'use strict';
 
-var specs = require('../react.spec.js');
+import specs from '../react.spec.js';
+import React from 'react';
+import createReactClass from 'create-react-class';
+import ReactDOM from 'react-dom';
+import FakeReact from '../../lib/fake-react.js';
+import FakeReactDOM from '../../lib/fake-react-dom.js';
 
 var implementations = {
   real: {
-    React: require('react'),
-    ReactDOM: require('react-dom'),
+    React,
+    createReactClass,
+    ReactDOM,
     pending: function () {}
   },
   fake: {
-    React: require('../../lib/fake-react'),
-    ReactDOM: require('../../lib/fake-react-dom'),
+    React: FakeReact,
+    createReactClass: FakeReact.createClass,
+    ReactDOM: FakeReactDOM,
     pending: pending
   }
 };
@@ -18,10 +25,11 @@ var implementations = {
 Object.keys(implementations).forEach(function (name) {
   var implementation = implementations[name];
   var React = implementation.React;
+  var createReactClass = implementation.createReactClass;
   var ReactDOM = implementation.ReactDOM;
   var pending = implementation.pending;
 
   describe('React and ReactDOM (' + name + ' implementation)', function () {
-    specs(React, ReactDOM, pending);
+    specs(React, createReactClass, ReactDOM, pending);
   });
 });
