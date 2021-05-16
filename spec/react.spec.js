@@ -120,7 +120,7 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     //
     // (Hint: use the setAttribute() method from the DOM API. There are a few
     // different ways of doing it, but if you get stuck, you might find
-    // JavaScript’s Object.keys() and forEach() methods useful.)
+    // JavaScript’s Object.entries() method and for…of syntax useful.)
 
     it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test

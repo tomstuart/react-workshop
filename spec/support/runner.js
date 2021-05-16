@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import FakeReact from '../../lib/fake-react.js';
 import FakeReactDOM from '../../lib/fake-react-dom.js';
 
-[
+const implementations = [
   {
     name: 'real',
     React,
@@ -20,8 +20,10 @@ import FakeReactDOM from '../../lib/fake-react-dom.js';
     ReactDOM: FakeReactDOM,
     pending,
   },
-].forEach(({ name, ...functions }) => {
+];
+
+for (const { name, ...functions } of implementations) {
   describe(`React and ReactDOM (${name} implementation)`, () => {
     specs(functions);
   });
-});
+}
