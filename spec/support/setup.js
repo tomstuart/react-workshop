@@ -1,5 +1,5 @@
 global.clickOn = target => {
-  var click = new window.MouseEvent('click', { bubbles: true });
+  const click = new window.MouseEvent('click', { bubbles: true });
   target.dispatchEvent(click);
 };
 
@@ -10,28 +10,28 @@ global.fillIn = (target, value) => {
   // and fake React, so I’m just papering over the cracks for now.
 
   // for real React:
-  var ReactTestUtils = require('react-dom/test-utils');
+  const ReactTestUtils = require('react-dom/test-utils');
   ReactTestUtils.Simulate.change(target);
 
   // for fake React:
-  var change = new window.Event('change', { bubbles: true });
+  const change = new window.Event('change', { bubbles: true });
   target.dispatchEvent(change);
 };
 
-var clean = node => {
-  var Node = node.ownerDocument.defaultView.Node;
+const clean = node => {
+  const Node = node.ownerDocument.defaultView.Node;
 
   switch (node.nodeType) {
     case Node.ELEMENT_NODE:
-      for (var i = node.attributes.length - 1; i >= 0; --i) {
-        var attribute = node.attributes[i];
+      for (let i = node.attributes.length - 1; i >= 0; --i) {
+        const attribute = node.attributes[i];
         if (attribute.name.startsWith('data-')) {
           node.removeAttribute(attribute.name);
         }
       }
 
-      for (var i = node.childNodes.length - 1; i >= 0; --i) {
-        var child = node.childNodes[i];
+      for (let i = node.childNodes.length - 1; i >= 0; --i) {
+        const child = node.childNodes[i];
         clean(child);
       }
 
@@ -45,16 +45,16 @@ var clean = node => {
 
 expect.extend({
   toContainHTML(container, html) {
-    var actual = container.cloneNode(true);
+    const actual = container.cloneNode(true);
     clean(actual);
     actual.normalize();
 
-    var expected = container.cloneNode(true);
+    const expected = container.cloneNode(true);
     expected.innerHTML = html;
 
     return {
       pass: actual.isEqualNode(expected),
-      message: "Expected '" + expected.innerHTML + "', got '" + actual.innerHTML + "'"
+      message: `Expected '${expected.innerHTML}', got '${actual.innerHTML}'`
     };
   }
 });
