@@ -4,6 +4,7 @@
 // and lib/fake-react-dom.js.
 
 import { beforeEach, afterEach, describe, expect } from '@jest/globals';
+import { clickOn, fillIn } from './support/dom-helpers.js';
 
 export default ({ React, createReactClass, ReactDOM, it }) => {
   // Before every test, we create a <div> and add it to an HTML document.
