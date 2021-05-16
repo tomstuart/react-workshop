@@ -401,14 +401,12 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // At render time, the function gets called with the element’s props, and
     // the resulting React element is rendered into the page.
 
-    let Greeting;
+    // Greeting is the functional component here; it’s a function that takes
+    // props and returns a span element containing data from those props.
+
+    const Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
 
     beforeEach(() => {
-      // Greeting is the functional component here; it’s a function that takes
-      // props and returns a span element containing data from those props.
-
-      Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
-
       element = React.createElement(Greeting, { name: 'Clarice' });
     });
 
@@ -443,19 +441,17 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // functional. These tests check that ReactDOM.render() can handle
     // functional components nested inside each other.
 
-    let Greeting, App;
+    const Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
+
+    const App = props => (
+      React.createElement('p', {}, [
+        React.createElement(Greeting, { name: 'Alice' }),
+        React.createElement(Greeting, { name: 'Bob' }),
+        React.createElement(Greeting, { name: 'Charlie' })
+      ])
+    );
 
     beforeEach(() => {
-      Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
-
-      App = props => (
-        React.createElement('p', {}, [
-          React.createElement(Greeting, { name: 'Alice' }),
-          React.createElement(Greeting, { name: 'Bob' }),
-          React.createElement(Greeting, { name: 'Charlie' })
-        ])
-      );
-
       element = React.createElement(App);
     });
 
@@ -501,15 +497,13 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // a class component. You’ll also need to edit lib/fake-react-dom.js to
     // teach ReactDOM.render() how to render a class component.
 
-    let Greeting;
+    const Greeting = createReactClass({
+      render() {
+        return React.createElement('span', {}, ['Hello, ', this.props.name, '!']);
+      }
+    });
 
     beforeEach(() => {
-      Greeting = createReactClass({
-        render() {
-          return React.createElement('span', {}, ['Hello, ', this.props.name, '!']);
-        }
-      });
-
       element = React.createElement(Greeting, { name: 'Newman' });
     });
 
@@ -548,28 +542,26 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // instantiated, and the resulting data is stored as the “state” property
     // of the component instance so that its render method can access it.
 
-    let Counter;
+    const Counter = createReactClass({
+      getInitialState() {
+        return { count: this.props.initialCount };
+      },
+
+      render() {
+        return React.createElement(
+          'span',
+          {},
+          [
+            'There are ',
+            this.state.count.toString(),
+            ' ',
+            this.props.noun
+          ]
+        );
+      }
+    });
 
     beforeEach(() => {
-      Counter = createReactClass({
-        getInitialState() {
-          return { count: this.props.initialCount };
-        },
-
-        render() {
-          return React.createElement(
-            'span',
-            {},
-            [
-              'There are ',
-              this.state.count.toString(),
-              ' ',
-              this.props.noun
-            ]
-          );
-        }
-      });
-
       element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
     });
 
@@ -602,35 +594,33 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // to remember where the element was first rendered into the DOM so that
     // you can re-render it in the same place when its state changes.
 
-    let Counter;
+    const Counter = createReactClass({
+      getInitialState() {
+        return { count: this.props.initialCount };
+      },
+
+      handleClick() {
+        this.setState({ count: this.state.count + 1 });
+      },
+
+      render() {
+        return React.createElement(
+          'span',
+          {
+            id: 'target',
+            onClick: this.handleClick.bind(this)
+          },
+          [
+            'There are ',
+            this.state.count.toString(),
+            ' ',
+            this.props.noun
+          ]
+        );
+      }
+    });
 
     beforeEach(() => {
-      Counter = createReactClass({
-        getInitialState() {
-          return { count: this.props.initialCount };
-        },
-
-        handleClick() {
-          this.setState({ count: this.state.count + 1 });
-        },
-
-        render() {
-          return React.createElement(
-            'span',
-            {
-              id: 'target',
-              onClick: this.handleClick.bind(this)
-            },
-            [
-              'There are ',
-              this.state.count.toString(),
-              ' ',
-              this.props.noun
-            ]
-          );
-        }
-      });
-
       element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
     });
 
