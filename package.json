@@ -9,6 +9,7 @@
     "create-react-class": "^15.7.0",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
+    "jest-environment-jsdom": "^26.6.2",
     "jsdom": "^16.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
@@ -32,6 +33,7 @@
     "setupFilesAfterEnv": [
       "<rootDir>/spec/support/setup.js"
     ],
+    "testEnvironment": "jsdom",
     "testMatch": [
       "<rootDir>/spec/support/runner.js"
     ],
