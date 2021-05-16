@@ -51,10 +51,10 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: 'br',
         props: {}
-      }));
+      });
     });
 
     // Our second test checks that we can use ReactDOM.render() to turn a React
@@ -103,12 +103,12 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: 'img',
         props: {
           src: 'cat.jpg'
         }
-      }));
+      });
     });
 
     // The second test checks that ReactDOM.render() uses the props to add
@@ -157,16 +157,16 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: 'a',
         props: {
           href: 'animals.html',
           children: [
-            expect.objectContaining({ type: 'img', props: { src: 'cat.jpg' } }),
-            expect.objectContaining({ type: 'img', props: { src: 'dog.jpg' } })
+            { type: 'img', props: { src: 'cat.jpg' } },
+            { type: 'img', props: { src: 'dog.jpg' } }
           ]
         }
-      }));
+      });
     });
 
     // The second test checks that ReactDOM.render() can render children inside
@@ -208,12 +208,12 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: 'span',
         props: {
           children: ['Hello', ', world!']
         }
-      }));
+      });
     });
 
     // The second test checks that ReactDOM.render() can render text inside an
@@ -250,16 +250,16 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: 'span',
         props: {
           children: [
             'Hello',
-            expect.objectContaining({ type: 'br', props: {} }),
+            { type: 'br', props: {} },
             'world!'
           ]
         }
-      }));
+      });
     });
 
     // The second test checks that ReactDOM.render() can render both text and
@@ -295,13 +295,13 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: 'img',
         props: {
           className: 'fluffy',
           src: 'cat.jpg'
         }
-      }));
+      });
     });
 
     // The second test checks that ReactDOM.render() knows that a className
@@ -410,12 +410,12 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: Greeting,
         props: {
           name: 'Clarice'
         }
-      }));
+      });
     });
 
     // The second test checks that a functional component is rendered to the
@@ -451,10 +451,10 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: App,
         props: {}
-      }));
+      });
     });
 
     // TODO remove .skip to enable the test
@@ -507,12 +507,12 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: Greeting,
         props: {
           name: 'Newman'
         }
-      }));
+      });
     });
 
     // TODO remove .skip to enable the test
@@ -563,13 +563,13 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: Counter,
         props: {
           initialCount: 2,
           noun: 'lights'
         }
-      }));
+      });
     });
 
     // TODO remove .skip to enable the test
@@ -620,13 +620,13 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
 
     // TODO remove .skip to enable the test
     it.skip('creates the element', () => {
-      expect(element).toEqual(expect.objectContaining({
+      expect(element).toMatchObject({
         type: Counter,
         props: {
           initialCount: 2,
           noun: 'lights'
         }
-      }));
+      });
     });
 
     // TODO remove .skip to enable the test
