@@ -20,7 +20,7 @@ const implementations = {
     React: FakeReact,
     createReactClass: FakeReact.createClass,
     ReactDOM: FakeReactDOM,
-    it,
+    it: unskippableIt,
   },
 };
 
