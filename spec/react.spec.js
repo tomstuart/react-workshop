@@ -642,4 +642,94 @@ export default ({ React, createReactClass, ReactDOM, it }) => {
       expect(container).toContainHTML('<span id="target">There are 4 lights</span>');
     });
   });
+
+  describe('rendering a functional component with state hook', () => {
+    // TODO documentation
+
+    const Counter = props => {
+      const [count, setCount] = React.useState(props.initialCount);
+
+      return React.createElement(
+        'span',
+        {},
+        [
+          'There are ',
+          count.toString(),
+          ' ',
+          props.noun
+        ]
+      );
+    };
+
+    beforeEach(() => {
+      element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
+    });
+
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
+      expect(element).toMatchObject({
+        type: Counter,
+        props: {
+          initialCount: 2,
+          noun: 'lights'
+        }
+      });
+    });
+
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
+      ReactDOM.render(element, container);
+      expect(container).toContainHTML('<span>There are 2 lights</span>');
+    });
+  });
+
+  describe('automatically re-rendering a functional component with state hook', () => {
+    // TODO documentation
+
+    const Counter = props => {
+      const [count, setCount] = React.useState(props.initialCount);
+
+      return React.createElement(
+        'span',
+        {
+          id: 'target',
+          onClick: () => { setCount(count + 1); }
+        },
+        [
+          'There are ',
+          count.toString(),
+          ' ',
+          props.noun
+        ]
+      );
+    };
+
+    beforeEach(() => {
+      element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
+    });
+
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
+      expect(element).toMatchObject({
+        type: Counter,
+        props: {
+          initialCount: 2,
+          noun: 'lights'
+        }
+      });
+    });
+
+    // TODO remove .skip to enable the test
+    it.skip('re-renders the element to the DOM when its state changes', () => {
+      ReactDOM.render(element, container);
+
+      const target = document.getElementById('target');
+
+      expect(container).toContainHTML('<span id="target">There are 2 lights</span>');
+      clickOn(target);
+      expect(container).toContainHTML('<span id="target">There are 3 lights</span>');
+      clickOn(target);
+      expect(container).toContainHTML('<span id="target">There are 4 lights</span>');
+    });
+  });
 };
