@@ -331,7 +331,7 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       let clicked = false;
-      const handleClick = function () { clicked = true; };
+      const handleClick = () => { clicked = true; };
 
       element = React.createElement('span', { id: 'target', onClick: handleClick }, ['Click me!']);
       ReactDOM.render(element, container);
@@ -355,7 +355,7 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       let number = null;
-      const handleChange = function (event) { number = parseInt(event.target.value); };
+      const handleChange = event => { number = parseInt(event.target.value); };
 
       element = React.createElement('input', { id: 'target', type: 'text', onChange: handleChange });
       ReactDOM.render(element, container);
@@ -407,9 +407,7 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       // Greeting is the functional component here; it’s a function that takes
       // props and returns a span element containing data from those props.
 
-      Greeting = function (props) {
-        return React.createElement('span', {}, ['Hello, ', props.name, '!']);
-      };
+      Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
 
       element = React.createElement(Greeting, { name: 'Clarice' });
     });
@@ -448,17 +446,15 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     let Greeting, App;
 
     beforeEach(() => {
-      Greeting = function (props) {
-        return React.createElement('span', {}, ['Hello, ', props.name, '!']);
-      };
+      Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
 
-      App = function (props) {
-        return React.createElement('p', {}, [
+      App = props => (
+        React.createElement('p', {}, [
           React.createElement(Greeting, { name: 'Alice' }),
           React.createElement(Greeting, { name: 'Bob' }),
           React.createElement(Greeting, { name: 'Charlie' })
-        ]);
-      };
+        ])
+      );
 
       element = React.createElement(App);
     });
