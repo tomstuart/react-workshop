@@ -9,8 +9,8 @@
     "create-react-class": "^15.7.0",
     "jest": "^27.0.0-next",
     "jest-environment-jsdom": "^27.0.0-next",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "scripts": {
     "test": "NODE_ENV=production jest"
