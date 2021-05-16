@@ -10,18 +10,18 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
 
   let container, element;
 
-  beforeEach(function () {
+  beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
   });
 
-  afterEach(function () {
+  afterEach(() => {
     document.body.removeChild(container);
     container = null;
     element = null;
   });
 
-  describe('rendering an HTML element', function () {
+  describe('rendering an HTML element', () => {
     // Our first tests are about rendering a very simple HTML element: <br>.
     // This job happens in two stages, so there are two tests.
     //
@@ -29,7 +29,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // the HTML element we want to render (React calls this the element’s
     // “type”), and store its result in a variable.
 
-    beforeEach(function () {
+    beforeEach(() => {
       element = React.createElement('br');
     });
 
@@ -46,7 +46,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // some code inside the definition of createElement() so that it returns an
     // object with the right properties.
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -71,7 +71,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // (Hint: use the createElement() and appendChild() methods from the DOM
     // API.)
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -79,7 +79,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with attributes', function () {
+  describe('rendering an HTML element with attributes', () => {
     // The next two tests are about rendering a more complicated HTML element
     // that has an attribute: <img src="cat.jpg">.
     //
@@ -88,7 +88,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // “props”) whose properties correspond to the attributes of the HTML
     // element we want to render.
 
-    beforeEach(function () {
+    beforeEach(() => {
       element = React.createElement('img', { src: 'cat.jpg' });
     });
 
@@ -100,7 +100,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // previous tests, but if you get stuck, you might find JavaScript’s
     // Object.assign() method helpful.)
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -122,7 +122,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // different ways of doing it, but if you get stuck, you might find
     // JavaScript’s Object.keys() and forEach() methods useful.)
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -130,7 +130,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with children', function () {
+  describe('rendering an HTML element with children', () => {
     // Now we’re going to try rendering nested HTML elements:
     // <a href="animals.html"><img src="cat.jpg"><img src="dog.jpg"></a>.
     //
@@ -138,7 +138,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // argument: an array of child React elements (React calls this array
     // “children”).
 
-    beforeEach(function () {
+    beforeEach(() => {
       element = React.createElement('a', { href: 'animals.html' }, [
         React.createElement('img', { src: 'cat.jpg' }),
         React.createElement('img', { src: 'dog.jpg' })
@@ -155,7 +155,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // previous tests, but if you get stuck, you might find JavaScript’s
     // typeof operator helpful.)
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -176,7 +176,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // (Hint: you have already implemented a method that can render a React
     // element into a container as HTML.)
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -184,7 +184,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with text children', function () {
+  describe('rendering an HTML element with text children', () => {
     // The next two tests are about rendering an HTML element that contains
     // text: <span>Hello, world!</span>.
     //
@@ -192,7 +192,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // (rather than proper React elements) to express that we want plain text
     // inside the HTML element.
 
-    beforeEach(function () {
+    beforeEach(() => {
       element = React.createElement(
         'span',
         {},
@@ -203,7 +203,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // The first test checks that the string children are passed through to the
     // React element by React.createElement(). It might already work!
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -220,7 +220,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // (Hint: use JavaScript’s typeof operator, and the createTextNode() method
     // from the DOM API.)
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -228,14 +228,14 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with mixed children', function () {
+  describe('rendering an HTML element with mixed children', () => {
     // The next two tests are about rendering an HTML element that contains
     // both text and other HTML elements: <span>Hello<br>world!</span>.
     //
     // When we call React.createElement(), we pass in both strings and React
     // elements as children.
 
-    beforeEach(function () {
+    beforeEach(() => {
       element = React.createElement(
         'span',
         {},
@@ -247,7 +247,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // through to the React element by React.createElement(). It might already
     // work!
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -265,7 +265,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // The second test checks that ReactDOM.render() can render both text and
     // HTML elements inside another HTML element. It might already work!
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -273,7 +273,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with a class attribute', function () {
+  describe('rendering an HTML element with a class attribute', () => {
     // The next two tests are about rendering an HTML element with a class
     // attribute: <img class="fluffy" src="cat.jpg">.
     //
@@ -281,7 +281,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // of a property. When we call React.createElement() we pass in a prop
     // called “className” instead.
 
-    beforeEach(function () {
+    beforeEach(() => {
       element = React.createElement(
         'img',
         {
@@ -294,7 +294,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // The first test checks that the className prop is passed through to the
     // React element by React.createElement(). It might already work!
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -309,7 +309,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // The second test checks that ReactDOM.render() knows that a className
     // prop should be rendered as an HTML class attribute.
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -317,7 +317,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with a click handler', function () {
+  describe('rendering an HTML element with a click handler', () => {
     // This test is about rendering an HTML element with a click handler. When
     // we call React.createElement() we pass in the click handler function as a
     // prop called “onClick”.
@@ -327,7 +327,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     //
     // (Hint: use the addEventListener() method from the DOM API.)
 
-    it('triggers the click handler when clicked', function () {
+    it('triggers the click handler when clicked', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       let clicked = false;
@@ -343,7 +343,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering an HTML element with a change handler', function () {
+  describe('rendering an HTML element with a change handler', () => {
     // This test is about rendering an HTML element with a change handler. When
     // we call React.createElement() we pass in the change handler function as
     // a prop called “onChange”.
@@ -351,7 +351,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // The test checks that the handler function is called when the value of
     // the rendered HTML element is changed.
 
-    it('triggers the change handler when changed', function () {
+    it('triggers the change handler when changed', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       let number = null;
@@ -367,7 +367,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('re-rendering an HTML element', function () {
+  describe('re-rendering an HTML element', () => {
     // One of React’s main features is that it can update the DOM when your
     // data changes. This test is about re-rendering a React element into the
     // same HTML element container. It checks that rendering a different
@@ -377,7 +377,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // API. Don’t try to be too clever; do the simplest thing that works! You
     // may need to reorganise your code a little to make this test pass.)
 
-    it('updates the DOM to match the new element', function () {
+    it('updates the DOM to match the new element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       element = React.createElement('span', {}, ['Hello, world!']);
@@ -392,7 +392,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
 
   // Everything gets more difficult from now on.
 
-  describe('rendering a functional component', function () {
+  describe('rendering a functional component', () => {
     // Until now we’ve always used a string as the React element type, but
     // React also supports providing a JavaScript function as the element type.
     // The function should take a props object as argument and return another
@@ -403,7 +403,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
 
     let Greeting;
 
-    beforeEach(function () {
+    beforeEach(() => {
       // Greeting is the functional component here; it’s a function that takes
       // props and returns a span element containing data from those props.
 
@@ -417,7 +417,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // The first test checks that the type prop is passed through to the React
     // element by React.createElement(). It might already work!
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -432,7 +432,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     // DOM by ReactDOM.render(). This means that render() is responsible for
     // calling the Greeting function and then rendering the result as HTML.
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -440,14 +440,14 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering nested functional components', function () {
+  describe('rendering nested functional components', () => {
     // Of course, an element returned by a functional component might itself be
     // functional. These tests check that ReactDOM.render() can handle
     // functional components nested inside each other.
 
     let Greeting, App;
 
-    beforeEach(function () {
+    beforeEach(() => {
       Greeting = function (props) {
         return React.createElement('span', {}, ['Hello, ', props.name, '!']);
       };
@@ -463,7 +463,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       element = React.createElement(App);
     });
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -472,7 +472,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       }));
     });
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -480,7 +480,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering a class component', function () {
+  describe('rendering a class component', () => {
     // React supports a third kind of element type, which it calls a “class
     // component”. These are also functions, just like functional components,
     // but instead of directly returning a React element, they return an object
@@ -507,7 +507,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
 
     let Greeting;
 
-    beforeEach(function () {
+    beforeEach(() => {
       Greeting = createReactClass({
         render: function () {
           return React.createElement('span', {}, ['Hello, ', this.props.name, '!']);
@@ -517,7 +517,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       element = React.createElement(Greeting, { name: 'Newman' });
     });
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -528,7 +528,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       }));
     });
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -536,7 +536,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('rendering a class component with state', function () {
+  describe('rendering a class component with state', () => {
     // Why does React have both functional and class components? Because the
     // object returned by a class component can be used to store data that
     // changes in response to user actions; React calls this data “state”. When
@@ -554,7 +554,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
 
     let Counter;
 
-    beforeEach(function () {
+    beforeEach(() => {
       Counter = createReactClass({
         getInitialState: function () {
           return { count: this.props.initialCount };
@@ -577,7 +577,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
     });
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -589,7 +589,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       }));
     });
 
-    it('renders the element to the DOM', function () {
+    it('renders the element to the DOM', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
@@ -597,7 +597,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
     });
   });
 
-  describe('automatically re-rendering a class component', function () {
+  describe('automatically re-rendering a class component', () => {
     // Of course, the whole point of having state is so that it can change!
     // React class components support a setState() method that updates the
     // state and automatically re-renders the component to the DOM.
@@ -608,7 +608,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
 
     let Counter;
 
-    beforeEach(function () {
+    beforeEach(() => {
       Counter = createReactClass({
         getInitialState: function () {
           return { count: this.props.initialCount };
@@ -638,7 +638,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
     });
 
-    it('creates the element', function () {
+    it('creates the element', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       expect(element).toEqual(expect.objectContaining({
@@ -650,7 +650,7 @@ export default function ({ React, createReactClass, ReactDOM, pending }) {
       }));
     });
 
-    it('re-renders the element to the DOM when its state changes', function () {
+    it('re-renders the element to the DOM when its state changes', () => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
