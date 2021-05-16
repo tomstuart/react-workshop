@@ -3,7 +3,7 @@
 // against the fake React and ReactDOM implementations in lib/fake-react.js
 // and lib/fake-react-dom.js.
 
-export default function ({ React, createReactClass, ReactDOM, pending }) {
+export default ({ React, createReactClass, ReactDOM, pending }) => {
   // Before every test, we create a <div> and add it to an HTML document.
   // We’ll use this <div> as a container (i.e. a parent) for any HTML elements
   // we create later on.
