@@ -5,18 +5,21 @@ import ReactDOM from 'react-dom';
 import FakeReact from '../../lib/fake-react.js';
 import FakeReactDOM from '../../lib/fake-react-dom.js';
 
+const unskippableIt = function () { it.apply(this, arguments); };
+unskippableIt.skip = unskippableIt;
+
 const implementations = {
   real: {
     React,
     createReactClass,
     ReactDOM,
-    pending: () => {},
+    it: unskippableIt,
   },
   fake: {
     React: FakeReact,
     createReactClass: FakeReact.createClass,
     ReactDOM: FakeReactDOM,
-    pending,
+    it,
   },
 };
 

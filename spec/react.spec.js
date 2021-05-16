@@ -3,7 +3,7 @@
 // against the fake React and ReactDOM implementations in lib/fake-react.js
 // and lib/fake-react-dom.js.
 
-export default ({ React, createReactClass, ReactDOM, pending }) => {
+export default ({ React, createReactClass, ReactDOM, it }) => {
   // Before every test, we create a <div> and add it to an HTML document.
   // We’ll use this <div> as a container (i.e. a parent) for any HTML elements
   // we create later on.
@@ -46,9 +46,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // some code inside the definition of createElement() so that it returns an
     // object with the right properties.
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: 'br',
         props: {}
@@ -71,9 +70,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // (Hint: use the createElement() and appendChild() methods from the DOM
     // API.)
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<br>');
     });
@@ -100,9 +98,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // previous tests, but if you get stuck, you might find JavaScript’s
     // Object.assign() method helpful.)
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: 'img',
         props: {
@@ -122,9 +119,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // different ways of doing it, but if you get stuck, you might find
     // JavaScript’s Object.entries() method and for…of syntax useful.)
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<img src="cat.jpg">');
     });
@@ -156,9 +152,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // previous tests, but if you get stuck, you might find JavaScript’s
     // typeof operator helpful.)
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: 'a',
         props: {
@@ -177,9 +172,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // (Hint: you have already implemented a method that can render a React
     // element into a container as HTML.)
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML(`
         <a href="animals.html">
@@ -209,9 +203,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // The first test checks that the string children are passed through to the
     // React element by React.createElement(). It might already work!
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: 'span',
         props: {
@@ -226,9 +219,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // (Hint: use JavaScript’s typeof operator, and the createTextNode() method
     // from the DOM API.)
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, world!</span>');
     });
@@ -253,9 +245,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // through to the React element by React.createElement(). It might already
     // work!
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: 'span',
         props: {
@@ -271,9 +262,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // The second test checks that ReactDOM.render() can render both text and
     // HTML elements inside another HTML element. It might already work!
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello<br>world!</span>');
     });
@@ -300,9 +290,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // The first test checks that the className prop is passed through to the
     // React element by React.createElement(). It might already work!
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: 'img',
         props: {
@@ -315,9 +304,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // The second test checks that ReactDOM.render() knows that a className
     // prop should be rendered as an HTML class attribute.
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<img class="fluffy" src="cat.jpg">');
     });
@@ -333,9 +321,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     //
     // (Hint: use the addEventListener() method from the DOM API.)
 
-    it('triggers the click handler when clicked', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('triggers the click handler when clicked', () => {
       let clicked = false;
       const handleClick = () => { clicked = true; };
 
@@ -357,9 +344,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // The test checks that the handler function is called when the value of
     // the rendered HTML element is changed.
 
-    it('triggers the change handler when changed', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('triggers the change handler when changed', () => {
       let number = null;
       const handleChange = event => { number = parseInt(event.target.value); };
 
@@ -383,9 +369,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // API. Don’t try to be too clever; do the simplest thing that works! You
     // may need to reorganise your code a little to make this test pass.)
 
-    it('updates the DOM to match the new element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('updates the DOM to match the new element', () => {
       element = React.createElement('span', {}, ['Hello, world!']);
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, world!</span>');
@@ -420,9 +405,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // The first test checks that the type prop is passed through to the React
     // element by React.createElement(). It might already work!
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: Greeting,
         props: {
@@ -435,9 +419,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // DOM by ReactDOM.render(). This means that render() is responsible for
     // calling the Greeting function and then rendering the result as HTML.
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, Clarice!</span>');
     });
@@ -463,18 +446,16 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       element = React.createElement(App);
     });
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: App,
         props: {}
       }));
     });
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML(`
         <p>
@@ -521,9 +502,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       element = React.createElement(Greeting, { name: 'Newman' });
     });
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: Greeting,
         props: {
@@ -532,9 +512,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       }));
     });
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>Hello, Newman!</span>');
     });
@@ -579,9 +558,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
     });
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: Counter,
         props: {
@@ -591,9 +569,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       }));
     });
 
-    it('renders the element to the DOM', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('renders the element to the DOM', () => {
       ReactDOM.render(element, container);
       expect(container).toContainHTML('<span>There are 2 lights</span>');
     });
@@ -638,9 +615,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       element = React.createElement(Counter, { initialCount: 2, noun: 'lights' });
     });
 
-    it('creates the element', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('creates the element', () => {
       expect(element).toEqual(expect.objectContaining({
         type: Counter,
         props: {
@@ -650,9 +626,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       }));
     });
 
-    it('re-renders the element to the DOM when its state changes', () => {
-      pending('not implemented yet'); // TODO remove this line to enable the test
-
+    // TODO remove .skip to enable the test
+    it.skip('re-renders the element to the DOM when its state changes', () => {
       ReactDOM.render(element, container);
 
       const target = document.getElementById('target');
