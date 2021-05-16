@@ -54,7 +54,7 @@ expect.extend({
 
     return {
       pass: actual.isEqualNode(expected),
-      message: `Expected '${expected.innerHTML}', got '${actual.innerHTML}'`
+      message: () => `Expected '${expected.innerHTML}', got '${actual.innerHTML}'`
     };
   }
 });
