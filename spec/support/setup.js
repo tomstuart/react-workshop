@@ -37,6 +37,13 @@ const clean = node => {
 
       break;
 
+    case Node.TEXT_NODE:
+      if (/^\s+$/.test(node.data)) {
+        node.remove();
+      }
+
+      break;
+
     case Node.COMMENT_NODE:
       node.remove();
       break;
@@ -46,11 +53,15 @@ const clean = node => {
 expect.extend({
   toContainHTML(container, html) {
     const actual = container.cloneNode(true);
+    actual.normalize();
     clean(actual);
     actual.normalize();
 
     const expected = container.cloneNode(true);
     expected.innerHTML = html;
+    expected.normalize();
+    clean(expected);
+    expected.normalize();
 
     return {
       pass: actual.isEqualNode(expected),
