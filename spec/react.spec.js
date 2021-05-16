@@ -139,10 +139,11 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // “children”).
 
     beforeEach(() => {
-      element = React.createElement('a', { href: 'animals.html' }, [
-        React.createElement('img', { src: 'cat.jpg' }),
-        React.createElement('img', { src: 'dog.jpg' })
-      ]);
+      element =
+        React.createElement('a', { href: 'animals.html' }, [
+          React.createElement('img', { src: 'cat.jpg' }),
+          React.createElement('img', { src: 'dog.jpg' })
+        ]);
     });
 
     // The first test checks that React.createElement() has copied the children
@@ -404,7 +405,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // Greeting is the functional component here; it’s a function that takes
     // props and returns a span element containing data from those props.
 
-    const Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
+    const Greeting =
+      props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
 
     beforeEach(() => {
       element = React.createElement(Greeting, { name: 'Clarice' });
@@ -441,7 +443,8 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
     // functional. These tests check that ReactDOM.render() can handle
     // functional components nested inside each other.
 
-    const Greeting = props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
+    const Greeting =
+      props => React.createElement('span', {}, ['Hello, ', props.name, '!']);
 
     const App = props => (
       React.createElement('p', {}, [
