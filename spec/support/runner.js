@@ -5,25 +5,23 @@ import ReactDOM from 'react-dom';
 import FakeReact from '../../lib/fake-react.js';
 import FakeReactDOM from '../../lib/fake-react-dom.js';
 
-const implementations = [
-  {
-    name: 'real',
+const implementations = {
+  real: {
     React,
     createReactClass,
     ReactDOM,
     pending: () => {},
   },
-  {
-    name: 'fake',
+  fake: {
     React: FakeReact,
     createReactClass: FakeReact.createClass,
     ReactDOM: FakeReactDOM,
     pending,
   },
-];
+};
 
-for (const { name, ...functions } of implementations) {
+for (const [name, implementation] of Object.entries(implementations)) {
   describe(`React and ReactDOM (${name} implementation)`, () => {
-    specs(functions);
+    specs(implementation);
   });
 }
