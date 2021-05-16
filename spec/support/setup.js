@@ -1,3 +1,5 @@
+import { expect } from '@jest/globals';
+
 global.clickOn = target => {
   const click = new window.MouseEvent('click', { bubbles: true });
   target.dispatchEvent(click);

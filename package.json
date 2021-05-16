@@ -29,6 +29,7 @@
     ]
   },
   "jest": {
+    "injectGlobals": false,
     "setupFilesAfterEnv": [
       "<rootDir>/spec/support/setup.js"
     ],

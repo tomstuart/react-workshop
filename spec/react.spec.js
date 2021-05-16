@@ -3,6 +3,8 @@
 // against the fake React and ReactDOM implementations in lib/fake-react.js
 // and lib/fake-react-dom.js.
 
+import { beforeEach, afterEach, describe, expect } from '@jest/globals';
+
 export default ({ React, createReactClass, ReactDOM, it }) => {
   // Before every test, we create a <div> and add it to an HTML document.
   // We’ll use this <div> as a container (i.e. a parent) for any HTML elements

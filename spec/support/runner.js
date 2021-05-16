@@ -4,6 +4,7 @@ import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
 import FakeReact from '../../lib/fake-react.js';
 import FakeReactDOM from '../../lib/fake-react-dom.js';
+import { describe, it } from '@jest/globals';
 
 const unskippableIt = function () { it.apply(this, arguments); };
 unskippableIt.skip = unskippableIt;
