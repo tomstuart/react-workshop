@@ -31,7 +31,7 @@
   "jest": {
     "injectGlobals": false,
     "setupFilesAfterEnv": [
-      "<rootDir>/spec/support/setup.js"
+      "<rootDir>/spec/support/custom-matchers.js"
     ],
     "testEnvironment": "jsdom",
     "testMatch": [
