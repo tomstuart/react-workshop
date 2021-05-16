@@ -505,7 +505,7 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
 
     beforeEach(() => {
       Greeting = createReactClass({
-        render: function () {
+        render() {
           return React.createElement('span', {}, ['Hello, ', this.props.name, '!']);
         }
       });
@@ -552,11 +552,11 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
 
     beforeEach(() => {
       Counter = createReactClass({
-        getInitialState: function () {
+        getInitialState() {
           return { count: this.props.initialCount };
         },
 
-        render: function () {
+        render() {
           return React.createElement(
             'span',
             {},
@@ -606,15 +606,15 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
 
     beforeEach(() => {
       Counter = createReactClass({
-        getInitialState: function () {
+        getInitialState() {
           return { count: this.props.initialCount };
         },
 
-        handleClick: function () {
+        handleClick() {
           this.setState({ count: this.state.count + 1 });
         },
 
-        render: function () {
+        render() {
           return React.createElement(
             'span',
             {
