@@ -181,7 +181,12 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
-      expect(container).toContainHTML('<a href="animals.html"><img src="cat.jpg"><img src="dog.jpg"></a>');
+      expect(container).toContainHTML(`
+        <a href="animals.html">
+          <img src="cat.jpg">
+          <img src="dog.jpg">
+        </a>
+      `);
     });
   });
 
@@ -471,7 +476,13 @@ export default ({ React, createReactClass, ReactDOM, pending }) => {
       pending('not implemented yet'); // TODO remove this line to enable the test
 
       ReactDOM.render(element, container);
-      expect(container).toContainHTML('<p><span>Hello, Alice!</span><span>Hello, Bob!</span><span>Hello, Charlie!</span></p>');
+      expect(container).toContainHTML(`
+        <p>
+          <span>Hello, Alice!</span>
+          <span>Hello, Bob!</span>
+          <span>Hello, Charlie!</span>
+        </p>
+      `);
     });
   });
 
