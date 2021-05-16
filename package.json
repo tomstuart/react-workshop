@@ -5,11 +5,10 @@
   "dependencies": {
     "@babel/core": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
-    "babel-jest": "^26.6.3",
+    "babel-jest": "^27.0.0-next",
     "create-react-class": "^15.7.0",
-    "jest": "^26.6.3",
-    "jest-circus": "^26.6.3",
-    "jest-environment-jsdom": "^26.6.2",
+    "jest": "^27.0.0-next",
+    "jest-environment-jsdom": "^27.0.0-next",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -36,8 +35,7 @@
     "testEnvironment": "jsdom",
     "testMatch": [
       "<rootDir>/spec/support/runner.js"
-    ],
-    "testRunner": "jest-circus/runner"
+    ]
   },
   "repository": {
     "type": "git",
